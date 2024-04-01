@@ -14,6 +14,10 @@ class FormComponent extends Component {
       lastName: event.target.value,
     });
   };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(">>> check data state", this.state);
+  };
   render() {
     return (
       <>
@@ -36,7 +40,11 @@ class FormComponent extends Component {
           />
           <br />
           <br />
-          <input type="button" value="Submit" />
+          <input
+            type="submit"
+            value="Submit"
+            onClick={(event) => this.handleSubmit(event)}
+          />
         </form>
       </>
     );
