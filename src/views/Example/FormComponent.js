@@ -1,43 +1,55 @@
 import React, { Component } from "react";
-import ChildComponent from "./ChildComponent";
 class FormComponent extends Component {
   state = {
-    firstName: "",
-    lastName: "",
+    title: "",
+    salary: "",
   };
-  handleOnChangFirstName = (event) => {
+  handleOnChangtitle = (event) => {
     this.setState({
-      firstName: event.target.value,
+      title: event.target.value,
     });
   };
-  handleOnChangLastName = (event) => {
+  handleOnChangsalary = (event) => {
     this.setState({
-      lastName: event.target.value,
+      salary: event.target.value,
     });
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    if (!this.state.title || !this.state.salary) {
+      alert("Missing required params");
+      return;
+    }
     console.log(">>> check data state", this.state);
+    this.props.addNewJobs({
+      id: "abcJob" + Math.floor(Math.random() * 1001),
+      title: this.state.title,
+      salary: this.state.salary,
+    });
+    this.setState({
+      title: "",
+      salary: "",
+    });
   };
   render() {
     return (
       <>
         <h2>HTML Forms</h2>
         <form>
-          <label htmlFor="fname">First name:</label>
+          <label htmlFor="fname">Jobs title:</label>
           <br />
           <input
             type="text"
-            value={this.state.firstName}
-            onChange={(event) => this.handleOnChangFirstName(event)}
+            value={this.state.title}
+            onChange={(event) => this.handleOnChangtitle(event)}
           />
           <br />
-          <label htmlFor="lname">Last name:</label>
+          <label htmlFor="lname">Salary:</label>
           <br />
           <input
             type="text"
-            value={this.state.lastName}
-            onChange={(event) => this.handleOnChangLastName(event)}
+            value={this.state.salary}
+            onChange={(event) => this.handleOnChangsalary(event)}
           />
           <br />
           <br />
@@ -47,7 +59,6 @@ class FormComponent extends Component {
             onClick={(event) => this.handleSubmit(event)}
           />
         </form>
-        <ChildComponent name="Hungmanh" age="26" />
       </>
     );
   }

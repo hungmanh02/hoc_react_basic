@@ -1,33 +1,36 @@
 import React, { Component } from "react";
+import FormComponent from "./FormComponent";
+import ChildComponent from "./ChildComponent";
 class MyComponent extends Component {
   state = {
-    name: "Hùng Mạnh",
-    channel: "Học cùng Dân IT",
+    arrJobs: [
+      {
+        id: "abcJob1",
+        title: "Developers",
+        salary: "500",
+      },
+      {
+        id: "abcJob2",
+        title: "Testers",
+        salary: "400",
+      },
+      {
+        id: "abcJob3",
+        title: "Project managers",
+        salary: "300",
+      },
+    ],
   };
-  handleOnChangName = (event) => {
-    console.log(event.target.value);
+  addNewJobs = (job) => {
     this.setState({
-      name: event.target.value,
+      arrJobs: [...this.state.arrJobs, job],
     });
-  };
-  handleClickButton = () => {
-    alert("click me! ");
   };
   render() {
     return (
       <>
-        <div className="first">
-          <input
-            type="text"
-            value={this.state["name"]}
-            onChange={(event) => this.handleOnChangName(event)}
-          />
-          Hello my component, My name is {this.state.name}
-        </div>
-        <div className="second">My youtube channel : {this.state.channel}</div>
-        <div className="third">
-          <button onClick={() => this.handleClickButton()}>Click me!</button>
-        </div>
+        <FormComponent addNewJobs={this.addNewJobs} />
+        <ChildComponent arrJobs={this.state.arrJobs} />
       </>
     );
   }
