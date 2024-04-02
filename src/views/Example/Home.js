@@ -1,12 +1,12 @@
 import logo from "../logo.svg";
 import React from "react";
-import { withRouter } from "react-router-dom";
-
+// import { withRouter } from "react-router-dom";
+import Color from "../HOC/Color";
 class Home extends React.Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.history.push("/jobs");
-    }, 3000);
+    //   setTimeout(() => {
+    //     this.props.history.push("/jobs");
+    //   }, 3000);
   }
   render() {
     console.log(">>>check props", this.props);
@@ -18,4 +18,5 @@ class Home extends React.Component {
     );
   }
 }
-export default withRouter(Home);
+// export default withRouter(Home);
+export default Color(Home);
