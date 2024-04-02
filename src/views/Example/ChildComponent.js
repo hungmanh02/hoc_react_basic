@@ -8,6 +8,9 @@ class ChildComponent extends Component {
       showJobs: !this.state.showJobs,
     });
   };
+  handleOnclickDelete = (job) => {
+    this.props.deleteAJob(job);
+  };
   render() {
     // console.log("check props: ", this.props);
     // cách  1 gan giá trị của props
@@ -29,7 +32,8 @@ class ChildComponent extends Component {
           <>
             {arrJobs.map((item, index) => (
               <div key={index}>
-                {item["id"]} - {item.title} - {item.salary}
+                {item["id"]} - {item.title} - {item.salary} <></>
+                <span onClick={() => this.handleOnclickDelete(item)}>x</span>
               </div>
             ))}
             <div>
