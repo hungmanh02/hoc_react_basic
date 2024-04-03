@@ -5,13 +5,14 @@ import Home from "./Example/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MyComponent from "./Example/MyComponent";
 import ListTodo from "./Todos/ListTodo";
+import ListUser from "./Users/ListUser";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Nav />
         <header className="App-header">
-          <Nav />
           <Switch>
             <Route path="/" exact>
               <Home />
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/todos">
               <ListTodo />
+            </Route>
+            <Route path="/users">
+              <ListUser />
             </Route>
           </Switch>
         </header>
