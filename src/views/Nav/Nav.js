@@ -13,7 +13,7 @@ class Nav extends React.Component {
           <NavLink to="/jobs" activeClassName="active">
             Jobs
           </NavLink>
-          <NavLink to="/todo" activeClassName="active">
+          <NavLink to="/todos" activeClassName="active">
             Todos
           </NavLink>
           <NavLink to="/about" activeClassName="active">

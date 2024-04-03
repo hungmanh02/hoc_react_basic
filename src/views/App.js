@@ -1,8 +1,10 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav/Nav";
 import Home from "./Example/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MyComponent from "./Example/MyComponent";
+import ListTodo from "./Todos/ListTodo";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
             </Route>
             <Route path="/jobs">
               <MyComponent />
+            </Route>
+            <Route path="/todos">
+              <ListTodo />
             </Route>
           </Switch>
         </header>
