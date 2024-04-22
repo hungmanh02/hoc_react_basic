@@ -1,7 +1,7 @@
 import logo from "../logo.svg";
 import React from "react";
 // import { withRouter } from "react-router-dom";
-import Color from "../HOC/Color";
+// import Color from "../HOC/Color";
 class Home extends React.Component {
   componentDidMount() {
     //   setTimeout(() => {
@@ -13,10 +13,10 @@ class Home extends React.Component {
     return (
       <>
         <img src={logo} className="App-logo" alt="logo" />
-        <div>Hello Home </div>
+        <div> </div>
       </>
     );
   }
 }
 // export default withRouter(Home);
-export default Color(Home);
+export default Home;
